@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kendo/Angular print bug.</title>
+    <meta charset="utf-8">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://cdn.kendostatic.com/2014.1.318/styles/kendo.common.min.css" rel="stylesheet"> 
+    <link href="http://cdn.kendostatic.com/2014.1.318/styles/kendo.bootstrap.min.css" rel="stylesheet"> 
+    <link href="http://cdn.kendostatic.com/2014.1.318/styles/kendo.common-bootstrap.min.css" rel="stylesheet"> 
+</head>
+<body>
+    <div ng-app="app">
+        <div ng-controller="MyController">
+            <h2>{{ name }}</h2>
+            <div kendo-grid="grid" k-data-source="gridData" k-options="gridOptions" k-rebind="gridOptions"></div> 
+            <button type="button" ng-click="buttonClick()">Toggle group/filter/Sort</button>
+            <div class="alert alert-success">
+                <strong>Filterable:</strong>{{ gridOptions.filterable }}<br/>
+                <strong>Groupable: </strong>{{ gridOptions.groupable }}<br/>
+                <strong>Sortable: </strong>{{ gridOptions.sortable }}<br/>
+            </div>
+            <button type="button" ng-click="printGrid()">Print me!</button>
+        </div>
+    </div>
+  
+    <script src="http://cdn.kendostatic.com/2014.1.318/js/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2014.1.318/js/kendo.web.min.js"></script>
+    <script src="app/libs/angular-kendo.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/controllers/MyController.js"></script>
+</body>
+</html>
